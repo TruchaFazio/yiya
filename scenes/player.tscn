@@ -1,41 +1,33 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl4qp7qqqof7h"]
+[gd_scene load_steps=23 format=3 uid="uid://dl4qp7qqqof7h"]
 
 [ext_resource type="Texture2D" uid="uid://bhdk01eqhigup" path="res://sprites/pink_monster/Pink_Monster_reposo.png" id="1_nk45b"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_td5yu"]
 [ext_resource type="Texture2D" uid="uid://doliij8ouemub" path="res://sprites/pink_monster/Pink_Monster_Jump_8.png" id="2_ta3vs"]
 [ext_resource type="Texture2D" uid="uid://gglkm2hsjg86" path="res://sprites/pink_monster/Pink_Monster_Walk_6.png" id="4_ktri8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6gei"]
-atlas = ExtResource("2_ta3vs")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_osrhd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tin7b"]
 atlas = ExtResource("2_ta3vs")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ikkto"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6rkt"]
 atlas = ExtResource("2_ta3vs")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vyqfj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qtlf"]
 atlas = ExtResource("2_ta3vs")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfeyb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhsex"]
 atlas = ExtResource("2_ta3vs")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0mpx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rf3a"]
 atlas = ExtResource("2_ta3vs")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2a60"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_05heg"]
 atlas = ExtResource("2_ta3vs")
 region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3x2l"]
-atlas = ExtResource("2_ta3vs")
-region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4x0a"]
 atlas = ExtResource("1_nk45b")
@@ -81,28 +73,22 @@ region = Rect2(160, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s6gei")
+"texture": SubResource("AtlasTexture_tin7b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_osrhd")
+"texture": SubResource("AtlasTexture_m6rkt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ikkto")
+"texture": SubResource("AtlasTexture_2qtlf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vyqfj")
+"texture": SubResource("AtlasTexture_fhsex")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfeyb")
+"texture": SubResource("AtlasTexture_0rf3a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m0mpx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2a60")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b3x2l")
+"texture": SubResource("AtlasTexture_05heg")
 }],
 "loop": true,
 "name": &"jump",
@@ -156,7 +142,7 @@ height = 26.0
 [node name="player" type="CharacterBody2D"]
 position = Vector2(47, 38)
 script = ExtResource("1_td5yu")
-move_speed = 140.0
+move_speed = 120.0
 jump_speed = 300.0
 gravity = 980.0
 metadata/_edit_group_ = true
@@ -164,8 +150,7 @@ metadata/_edit_group_ = true
 [node name="PinkMonsterReposo" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_djsy2")
 animation = &"jump"
-frame = 3
-frame_progress = 0.570245
+frame_progress = 0.63198
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
