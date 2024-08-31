@@ -150,7 +150,7 @@ metadata/_edit_group_ = true
 [node name="PinkMonsterReposo" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_djsy2")
 animation = &"jump"
-frame_progress = 0.63198
+frame_progress = 0.492426
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)

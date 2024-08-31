@@ -21,7 +21,7 @@ func update_animations():
 		if velocity.y < 0:
 			animated_sprite.play("jump")
 		else:
-			animated_sprite.play("reposo")
+			animated_sprite.play("jump")
 		return
 				
 	if velocity.x:
