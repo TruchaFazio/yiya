@@ -11,6 +11,8 @@ height = 26.0
 position = Vector2(47, 38)
 script = ExtResource("1_td5yu")
 move_speed = 140.0
+jump_speed = 300.0
+gravity = 980.0
 metadata/_edit_group_ = true
 
 [node name="PinkMonsterReposo" type="Sprite2D" parent="."]
