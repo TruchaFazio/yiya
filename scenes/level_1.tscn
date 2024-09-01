@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqbmy5figmwkx"]
+[gd_scene load_steps=13 format=3 uid="uid://cqbmy5figmwkx"]
 
 [ext_resource type="PackedScene" uid="uid://dl4qp7qqqof7h" path="res://scenes/player.tscn" id="1_k6ns5"]
 [ext_resource type="Texture2D" uid="uid://b6nxu4x8ivn0v" path="res://sprites/terreno/ground1.png" id="2_6kv4w"]
 [ext_resource type="Texture2D" uid="uid://bn5tmsnhcmpk5" path="res://sprites/terreno/ground_plataforma.png" id="3_hkco7"]
+[ext_resource type="PackedScene" uid="uid://dkm7og7unvgp2" path="res://scenes/boss_chicken.tscn" id="4_qw3ny"]
+[ext_resource type="PackedScene" uid="uid://cgogybhssbibr" path="res://scenes/boss_turtle.tscn" id="5_3ghht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yju3"]
 size = Vector2(96, 11)
@@ -86,3 +88,9 @@ shape = SubResource("SegmentShape2D_hhtx7")
 
 [node name="player" parent="." instance=ExtResource("1_k6ns5")]
 position = Vector2(181, 187)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_qw3ny")]
+position = Vector2(356, 97)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("5_3ghht")]
+position = Vector2(190, 114)
