@@ -1,7 +1,6 @@
-[gd_scene load_steps=41 format=3 uid="uid://cqbmy5figmwkx"]
+[gd_scene load_steps=34 format=3 uid="uid://cqbmy5figmwkx"]
 
 [ext_resource type="Texture2D" uid="uid://ci3rwfo0dorqn" path="res://terrain/2 Background/Night/1.png" id="1_cgcd0"]
-[ext_resource type="PackedScene" uid="uid://dl4qp7qqqof7h" path="res://scenes/player.tscn" id="1_k6ns5"]
 [ext_resource type="Texture2D" uid="uid://bl7qody0gthqc" path="res://terrain/2 Background/Night/2.png" id="2_jmq5k"]
 [ext_resource type="Texture2D" uid="uid://d0heky87xjeci" path="res://terrain/2 Background/Night/3.png" id="3_ruvuv"]
 [ext_resource type="PackedScene" uid="uid://dkm7og7unvgp2" path="res://scenes/boss_chicken.tscn" id="4_qw3ny"]
@@ -24,8 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://c104as602oysw" path="res://terrain/3 Objects/Bushes/19.png" id="20_7wd4m"]
 [ext_resource type="Texture2D" uid="uid://cqimr1i4h3275" path="res://terrain/3 Objects/Bushes/20.png" id="21_w1dew"]
 [ext_resource type="Texture2D" uid="uid://ca7w5p8krr2b3" path="res://terrain/4 Animated objects/Fountain.png" id="22_tc8wb"]
-[ext_resource type="Texture2D" uid="uid://bvgwivnk4edfs" path="res://terrain/4 Animated objects/Money.png" id="23_8y2rg"]
 [ext_resource type="Texture2D" uid="uid://t60v1alxbbwy" path="res://terrain/3 Objects/Other/Rapm3.png" id="24_qelw4"]
+[ext_resource type="PackedScene" uid="uid://dlv8vbmlxpdxd" path="res://scenes/objetos/dinero.tscn" id="24_sr6ky"]
+[ext_resource type="PackedScene" uid="uid://cec7nxkb71ws6" path="res://scenes/player_1.tscn" id="26_0pv55"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iue6y"]
 texture = ExtResource("6_m38wl")
@@ -724,56 +724,6 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4wpo"]
-atlas = ExtResource("23_8y2rg")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7dsss"]
-atlas = ExtResource("23_8y2rg")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ygnv"]
-atlas = ExtResource("23_8y2rg")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5q4q3"]
-atlas = ExtResource("23_8y2rg")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qwjvx"]
-atlas = ExtResource("23_8y2rg")
-region = Rect2(96, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2u8bh"]
-atlas = ExtResource("23_8y2rg")
-region = Rect2(120, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_53woq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e4wpo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7dsss")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ygnv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5q4q3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qwjvx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2u8bh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 13.0
-}]
-
 [node name="Level 1" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -916,12 +866,6 @@ sprite_frames = SubResource("SpriteFrames_sl5sb")
 autoplay = "default"
 frame_progress = 0.621873
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="entorno"]
-position = Vector2(1233, 308)
-sprite_frames = SubResource("SpriteFrames_53woq")
-autoplay = "default"
-frame_progress = 0.976849
-
 [node name="Rapm3" type="Sprite2D" parent="entorno"]
 position = Vector2(1787, 413)
 texture = ExtResource("24_qelw4")
@@ -930,10 +874,59 @@ texture = ExtResource("24_qelw4")
 position = Vector2(1905, 408)
 texture = ExtResource("15_a1pu5")
 
+[node name="Node2D" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(1233, 314)
+
+[node name="Node2D2" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(1721, 412)
+
+[node name="Node2D3" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(1767, 412)
+
+[node name="Node2D4" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(1815, 412)
+
+[node name="Node2D5" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(100, 412)
+
+[node name="Node2D6" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(162, 412)
+
+[node name="Node2D7" parent="entorno" instance=ExtResource("24_sr6ky")]
+position = Vector2(674, 350)
+
 [node name="characters" type="Node2D" parent="."]
 
-[node name="player" parent="characters" instance=ExtResource("1_k6ns5")]
-position = Vector2(59, 296)
-
 [node name="CharacterBody2D" parent="characters" instance=ExtResource("4_qw3ny")]
-position = Vector2(1102, 318)
+position = Vector2(1154, 367)
+
+[node name="player1" parent="characters" instance=ExtResource("26_0pv55")]
+position = Vector2(69, 317)
+move_speed = 150.0
+jump_speed = 400.0
+
+[node name="coinCollected" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="coinCollected"]
+offset_left = 25.0
+offset_top = 11.0
+offset_right = 100.0
+offset_bottom = 50.0
+
+[node name="Label" type="Label" parent="coinCollected"]
+offset_left = 58.0
+offset_top = 18.0
+offset_right = 65.0
+offset_bottom = 41.0
+text = ":"
+
+[node name="coinCollectedText" type="Label" parent="coinCollected"]
+offset_left = 71.0
+offset_top = 19.0
+offset_right = 111.0
+offset_bottom = 42.0
+text = "00
+"
+
+[node name="Node2D" parent="coinCollected" instance=ExtResource("24_sr6ky")]
+position = Vector2(42, 31)

@@ -1,0 +1,347 @@
+[gd_scene load_steps=48 format=3 uid="uid://cec7nxkb71ws6"]
+
+[ext_resource type="Texture2D" uid="uid://sghcqldbosnn" path="res://sprites/pink_monster/Pink_Monster_Animation_List.png" id="1_jgijd"]
+[ext_resource type="Script" path="res://scripts/player_1.gd" id="1_x3o7h"]
+[ext_resource type="PackedScene" uid="uid://cqcf6avevacmx" path="res://scenes/piedra-proyectil.tscn" id="2_qwypb"]
+
+[sub_resource type="Animation" id="Animation_m2cxt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [76]
+}
+
+[sub_resource type="Animation" id="Animation_qg6rn"]
+resource_name = "daño"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [52, 53, 54, 55]
+}
+
+[sub_resource type="Animation" id="Animation_sxm2r"]
+resource_name = "die"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.23333, 1.63333, 2.1, 2.53333, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [67, 68, 69, 70, 71, 72, 73, 74]
+}
+
+[sub_resource type="Animation" id="Animation_ivmu3"]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [22, 23, 24, 25, 26, 27, 28, 29]
+}
+
+[sub_resource type="Animation" id="Animation_7tdl0"]
+resource_name = "lanzar"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [97, 98, 99, 100]
+}
+
+[sub_resource type="Animation" id="Animation_4hgu8"]
+resource_name = "reposo"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [75, 76, 77, 78]
+}
+
+[sub_resource type="Animation" id="Animation_0piqf"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_7u720"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qk6gj"]
+_data = {
+"RESET": SubResource("Animation_m2cxt"),
+"daño": SubResource("Animation_qg6rn"),
+"die": SubResource("Animation_sxm2r"),
+"jump": SubResource("Animation_ivmu3"),
+"lanzar": SubResource("Animation_7tdl0"),
+"reposo": SubResource("Animation_4hgu8"),
+"run": SubResource("Animation_0piqf"),
+"walk": SubResource("Animation_7u720")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vusfh"]
+animation = &"daño"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_km6nq"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c43jq"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b3lu6"]
+animation = &"lanzar"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_er7h2"]
+animation = &"reposo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jiqo3"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wfn3t"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eyloj"]
+advance_mode = 2
+advance_condition = &"reposo"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jx705"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tpgwr"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6oco"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6kb4"]
+advance_mode = 2
+advance_condition = &"reposo"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1dj4g"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f3u81"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ir8p"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3crkk"]
+advance_mode = 2
+advance_condition = &"lanzar"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kgqpl"]
+advance_mode = 2
+advance_condition = &"lanzar"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rieax"]
+advance_mode = 2
+advance_condition = &"lanzar"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2byg6"]
+advance_mode = 2
+advance_condition = &"daño"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v4mt0"]
+advance_mode = 2
+advance_condition = &"daño"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qikq7"]
+advance_mode = 2
+advance_condition = &"daño"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2jbiu"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"reposo"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1rlit"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jikgx"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_744np"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"reposo"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hkjnb"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wdkog"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t01fw"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fo6um"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nlqij"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ws41"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvjug"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bkwq"]
+advance_mode = 2
+advance_condition = &"lanzar"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sua10"]
+states/End/position = Vector2(1152, 162)
+states/Start/position = Vector2(91, 162)
+"states/daño/node" = SubResource("AnimationNodeAnimation_vusfh")
+"states/daño/position" = Vector2(624, 41)
+states/die/node = SubResource("AnimationNodeAnimation_km6nq")
+states/die/position = Vector2(876, 56)
+states/jump/node = SubResource("AnimationNodeAnimation_c43jq")
+states/jump/position = Vector2(359, 574)
+states/lanzar/node = SubResource("AnimationNodeAnimation_b3lu6")
+states/lanzar/position = Vector2(930, 524)
+states/reposo/node = SubResource("AnimationNodeAnimation_er7h2")
+states/reposo/position = Vector2(378, 229)
+states/run/node = SubResource("AnimationNodeAnimation_jiqo3")
+states/run/position = Vector2(876, 206)
+states/walk/node = SubResource("AnimationNodeAnimation_wfn3t")
+states/walk/position = Vector2(624, 266)
+transitions = ["Start", "reposo", SubResource("AnimationNodeStateMachineTransition_eyloj"), "reposo", "walk", SubResource("AnimationNodeStateMachineTransition_jx705"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_tpgwr"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_l6oco"), "walk", "reposo", SubResource("AnimationNodeStateMachineTransition_w6kb4"), "reposo", "jump", SubResource("AnimationNodeStateMachineTransition_1dj4g"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_f3u81"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_8ir8p"), "reposo", "lanzar", SubResource("AnimationNodeStateMachineTransition_3crkk"), "walk", "lanzar", SubResource("AnimationNodeStateMachineTransition_kgqpl"), "run", "lanzar", SubResource("AnimationNodeStateMachineTransition_rieax"), "reposo", "daño", SubResource("AnimationNodeStateMachineTransition_2byg6"), "walk", "daño", SubResource("AnimationNodeStateMachineTransition_v4mt0"), "run", "daño", SubResource("AnimationNodeStateMachineTransition_qikq7"), "lanzar", "reposo", SubResource("AnimationNodeStateMachineTransition_2jbiu"), "lanzar", "walk", SubResource("AnimationNodeStateMachineTransition_1rlit"), "lanzar", "run", SubResource("AnimationNodeStateMachineTransition_jikgx"), "daño", "reposo", SubResource("AnimationNodeStateMachineTransition_744np"), "daño", "walk", SubResource("AnimationNodeStateMachineTransition_hkjnb"), "daño", "run", SubResource("AnimationNodeStateMachineTransition_wdkog"), "daño", "die", SubResource("AnimationNodeStateMachineTransition_t01fw"), "die", "End", SubResource("AnimationNodeStateMachineTransition_fo6um"), "jump", "reposo", SubResource("AnimationNodeStateMachineTransition_nlqij"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_5ws41"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_wvjug"), "jump", "lanzar", SubResource("AnimationNodeStateMachineTransition_0bkwq")]
+graph_offset = Vector2(12, -69.8)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtm6y"]
+radius = 7.0
+height = 26.0
+
+[node name="player1" type="CharacterBody2D"]
+script = ExtResource("1_x3o7h")
+move_speed = 120.0
+jump_speed = 300.0
+gravity = 980.0
+piedra = ExtResource("2_qwypb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jgijd")
+hframes = 15
+vframes = 8
+frame = 76
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_qk6gj")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
+tree_root = SubResource("AnimationNodeStateMachine_sua10")
+anim_player = NodePath("../AnimationPlayer")
+"parameters/conditions/daño" = false
+parameters/conditions/die = false
+parameters/conditions/jump = false
+parameters/conditions/lanzar = false
+parameters/conditions/reposo = false
+parameters/conditions/run = false
+parameters/conditions/walk = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_wtm6y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1900
+limit_bottom = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

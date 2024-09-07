@@ -254,7 +254,6 @@ script = ExtResource("1_35c2w")
 gravity = 980.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(54, 44)
 sprite_frames = SubResource("SpriteFrames_xtywu")
 animation = &"run"
 autoplay = "reposo"
@@ -262,6 +261,6 @@ frame = 4
 frame_progress = 0.153144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(54, 50)
+position = Vector2(0, 6)
 rotation = -1.55305
 shape = SubResource("CircleShape2D_36q83")
