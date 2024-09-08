@@ -1,8 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://cec7nxkb71ws6"]
+[gd_scene load_steps=47 format=3 uid="uid://cec7nxkb71ws6"]
 
 [ext_resource type="Texture2D" uid="uid://sghcqldbosnn" path="res://sprites/pink_monster/Pink_Monster_Animation_List.png" id="1_jgijd"]
 [ext_resource type="Script" path="res://scripts/player_1.gd" id="1_x3o7h"]
-[ext_resource type="PackedScene" uid="uid://cqcf6avevacmx" path="res://scenes/piedra-proyectil.tscn" id="2_qwypb"]
 
 [sub_resource type="Animation" id="Animation_m2cxt"]
 length = 0.001
@@ -306,9 +305,7 @@ height = 26.0
 [node name="player1" type="CharacterBody2D"]
 script = ExtResource("1_x3o7h")
 move_speed = 120.0
-jump_speed = 300.0
 gravity = 980.0
-piedra = ExtResource("2_qwypb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jgijd")

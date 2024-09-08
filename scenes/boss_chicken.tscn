@@ -249,7 +249,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_36q83"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Enemy_Chicken" type="CharacterBody2D"]
 script = ExtResource("1_35c2w")
 gravity = 980.0
 
@@ -260,7 +260,17 @@ autoplay = "reposo"
 frame = 4
 frame_progress = 0.153144
 
+[node name="FloorDetection" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(-8, 0)
+target_position = Vector2(0, 18)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 rotation = -1.55305
 shape = SubResource("CircleShape2D_36q83")
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+target_position = Vector2(-15, 0)
+
+[node name="RigthRay" type="RayCast2D" parent="."]
+target_position = Vector2(13, 0)

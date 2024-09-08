@@ -1,39 +1,36 @@
 extends CharacterBody2D
 
 @export var gravity: float
-const chickenRun = 50
+const MAX_SPEED : float = 50
+
+var motion := Vector2()
+
 
 func _ready():
-	velocity.x = chickenRun
+	$AnimatedSprite2D.scale.x = 1
+	motion.x = MAX_SPEED
 	$AnimatedSprite2D.play("run")
+	
+func _next_to_left_wall() -> bool:
+	return $LeftRay.is_colliding()
+	
+func _next_to_rigth_wall() -> bool:
+	return $RigthRay.is_colliding()
+	
+func _floor_detection() -> bool:
+	return $AnimatedSprite2D/FloorDetection.is_colliding()
+	
+func _flip():
+	motion.x *= -1
+	$AnimatedSprite2D.scale.x *= -1
+	
 
-func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		velocity.x = -chickenRun
-		
-	if is_on_wall():
-		if !$AnimatedSprite2D.flip_h:
-			velocity.x = chickenRun
-		else:
-			velocity.x = -chickenRun
-			
-		if velocity.x < 0:
-			$AnimatedSprite2D.flip_h = false
-		elif velocity.x > 0:
-			$AnimatedSprite2D.flip_h = true
-			
-	if is_on_wall():
-		if !$AnimatedSprite2D.flip_h:
-			velocity.x = -chickenRun
-		else:
-			velocity.x = chickenRun
-			
-		if velocity.x < 0:
-			$AnimatedSprite2D.flip_h = false
-		elif velocity.x > 0:
-			$AnimatedSprite2D.flip_h = true
-				
+
+func _process(delta):
+	pass
+	
+
+
 				
 	 
 	

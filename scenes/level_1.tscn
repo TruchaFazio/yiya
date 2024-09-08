@@ -893,7 +893,7 @@ position = Vector2(100, 412)
 position = Vector2(162, 412)
 
 [node name="Node2D7" parent="entorno" instance=ExtResource("24_sr6ky")]
-position = Vector2(674, 350)
+position = Vector2(674, 358)
 
 [node name="characters" type="Node2D" parent="."]
 
@@ -903,7 +903,6 @@ position = Vector2(1154, 367)
 [node name="player1" parent="characters" instance=ExtResource("26_0pv55")]
 position = Vector2(69, 317)
 move_speed = 150.0
-jump_speed = 400.0
 
 [node name="coinCollected" type="CanvasLayer" parent="."]
 

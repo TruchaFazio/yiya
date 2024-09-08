@@ -1,8 +1,7 @@
 extends CharacterBody2D
 @export var move_speed: float
-@export var jump_speed: float
+var jump_speed = 300
 @export var gravity: float
-@export var piedra: PackedScene
 
 var is_facing_rigth = true
 @onready var maquina_estados:AnimationTree = $Sprite2D/AnimationTree
@@ -15,9 +14,8 @@ func eIdle(active:bool):
 	maquina_estados["parameters/conditions/reposo"] = active
 	maquina_estados["parameters/conditions/walk"] = not active
 		
-func eRun(active:bool):
-	pass
-	
+# func eRun(active:bool):
+		
 func eJump(active:bool):
 	maquina_estados["parameters/conditions/jump"] = active
 	await get_tree().create_timer(.1).timeout
@@ -28,11 +26,9 @@ func eLanzar(active:bool):
 	await get_tree().create_timer(.1).timeout
 	maquina_estados["parameters/conditions/lanzar"] = not active
 	
-func eDaño(active:bool):
-	pass
-	
-func eDie(active:bool):
-	pass
+# func eDaño(active:bool):
+		
+# func eDie(active:bool):
 
 func _input(event):
 	if event.is_action_pressed("arrojar"):
