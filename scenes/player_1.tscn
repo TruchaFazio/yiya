@@ -303,9 +303,11 @@ radius = 7.0
 height = 26.0
 
 [node name="player1" type="CharacterBody2D"]
+position = Vector2(308, 228)
 script = ExtResource("1_x3o7h")
 move_speed = 120.0
 gravity = 980.0
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jgijd")
@@ -332,13 +334,3 @@ parameters/conditions/walk = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 3)
 shape = SubResource("CapsuleShape2D_wtm6y")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 1900
-limit_bottom = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @export var move_speed: float
-var jump_speed = 300
+var jump_speed = 350
 @export var gravity: float
 
 var is_facing_rigth = true

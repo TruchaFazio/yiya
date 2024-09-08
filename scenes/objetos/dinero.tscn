@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlv8vbmlxpdxd"]
+[gd_scene load_steps=19 format=3 uid="uid://dlv8vbmlxpdxd"]
 
 [ext_resource type="Texture2D" uid="uid://bvgwivnk4edfs" path="res://terrain/4 Animated objects/Money.png" id="1_geqtb"]
-[ext_resource type="Script" path="res://scripts/area_coin.gd" id="1_x54hl"]
 [ext_resource type="Texture2D" uid="uid://b3kxl7rkyxdhx" path="res://terrain/4 Animated objects/Card.png" id="2_mwc4b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7piec"]
@@ -121,7 +120,6 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("1_x54hl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7piec")
