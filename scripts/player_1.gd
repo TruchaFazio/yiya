@@ -1,6 +1,10 @@
 extends CharacterBody2D
 @export var move_speed: float
-var jump_speed = 350
+var jump_speed = 300
+var maxJump = 2
+var salto = 0
+var suelo = true
+var jump_doble = 400
 @export var gravity: float
 
 var is_facing_rigth = true
@@ -20,6 +24,7 @@ func eJump(active:bool):
 	maquina_estados["parameters/conditions/jump"] = active
 	await get_tree().create_timer(.1).timeout
 	maquina_estados["parameters/conditions/jump"] = not active
+	
 		
 func eLanzar(active:bool):
 	maquina_estados["parameters/conditions/lanzar"] = active
@@ -47,8 +52,14 @@ func _physics_process(delta):
 	move_and_slide()
 					
 func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor():
+		salto = 0
+		suelo = true
+		
+	if Input.is_action_just_pressed("jump") && salto < maxJump:
+		suelo = false
 		velocity.y = -jump_speed
+		salto+=1
 
 func move_x():
 	var input_axis = Input.get_axis("move_left", "move_rigth")

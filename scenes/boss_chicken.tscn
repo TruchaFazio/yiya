@@ -1,10 +1,28 @@
-[gd_scene load_steps=40 format=3 uid="uid://dkm7og7unvgp2"]
+[gd_scene load_steps=40 format=3 uid="uid://cunya8yamynv5"]
 
-[ext_resource type="Script" path="res://scripts/boss_chicken.gd" id="1_5q34n"]
 [ext_resource type="Texture2D" uid="uid://dpfmtmg020sjk" path="res://sprites/Chicken/Idle (32x34).png" id="1_beanc"]
 [ext_resource type="Texture2D" uid="uid://bf5qgcai2h317" path="res://sprites/Chicken/Hit (32x34).png" id="1_sbrgf"]
 [ext_resource type="Texture2D" uid="uid://bc5ww4hprn3vv" path="res://sprites/Chicken/Run (32x34).png" id="3_i11ki"]
-[ext_resource type="PackedScene" uid="uid://bbx4cdrde7i7p" path="res://scenes/zona_de_muerte.tscn" id="4_7j3ea"]
+[ext_resource type="PackedScene" uid="uid://c0c8x4nkd7ewi" path="res://scenes/zona_de_muerte.tscn" id="4_7j3ea"]
+
+[sub_resource type="GDScript" id="GDScript_2ne23"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	pass
+	
+	
+func _process(delta: float) -> void:
+	position.x += 50 * delta
+	
+	
+	
+	
+	
+	
+	
+	
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_un0j8"]
 atlas = ExtResource("1_sbrgf")
@@ -251,7 +269,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmyh2"]
 
 [node name="Enemy_Chicken" type="Node2D"]
-script = ExtResource("1_5q34n")
+script = SubResource("GDScript_2ne23")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xtywu")
@@ -259,16 +277,6 @@ animation = &"run"
 autoplay = "reposo"
 frame = 4
 frame_progress = 0.153144
-
-[node name="FloorDetection" type="RayCast2D" parent="AnimatedSprite2D"]
-position = Vector2(-8, 0)
-target_position = Vector2(0, 18)
-
-[node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(-15, 0)
-
-[node name="RigthRay" type="RayCast2D" parent="."]
-target_position = Vector2(13, 0)
 
 [node name="Zona de muerte" parent="." instance=ExtResource("4_7j3ea")]
 

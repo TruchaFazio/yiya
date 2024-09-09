@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cec7nxkb71ws6"]
+[gd_scene load_steps=50 format=3 uid="uid://cec7nxkb71ws6"]
 
 [ext_resource type="Texture2D" uid="uid://sghcqldbosnn" path="res://sprites/pink_monster/Pink_Monster_Animation_List.png" id="1_jgijd"]
 [ext_resource type="Script" path="res://scripts/player_1.gd" id="1_x3o7h"]
@@ -169,6 +169,9 @@ animation = &"daño"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_km6nq"]
 animation = &"die"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ncb1r"]
+animation = &"doble salto"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c43jq"]
 animation = &"jump"
 
@@ -287,9 +290,16 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wvjug"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bkwq"]
 advance_mode = 2
 advance_condition = &"lanzar"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ayeem"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sua10"]
 states/End/position = Vector2(1152, 162)
@@ -298,6 +308,8 @@ states/Start/position = Vector2(91, 162)
 "states/daño/position" = Vector2(624, 41)
 states/die/node = SubResource("AnimationNodeAnimation_km6nq")
 states/die/position = Vector2(876, 56)
+"states/doble salto/node" = SubResource("AnimationNodeAnimation_ncb1r")
+"states/doble salto/position" = Vector2(629, 653.2)
 states/jump/node = SubResource("AnimationNodeAnimation_c43jq")
 states/jump/position = Vector2(359, 574)
 states/lanzar/node = SubResource("AnimationNodeAnimation_b3lu6")
@@ -308,8 +320,8 @@ states/run/node = SubResource("AnimationNodeAnimation_jiqo3")
 states/run/position = Vector2(876, 206)
 states/walk/node = SubResource("AnimationNodeAnimation_wfn3t")
 states/walk/position = Vector2(624, 266)
-transitions = ["Start", "reposo", SubResource("AnimationNodeStateMachineTransition_eyloj"), "reposo", "walk", SubResource("AnimationNodeStateMachineTransition_jx705"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_tpgwr"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_l6oco"), "walk", "reposo", SubResource("AnimationNodeStateMachineTransition_w6kb4"), "reposo", "jump", SubResource("AnimationNodeStateMachineTransition_1dj4g"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_f3u81"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_8ir8p"), "reposo", "lanzar", SubResource("AnimationNodeStateMachineTransition_3crkk"), "walk", "lanzar", SubResource("AnimationNodeStateMachineTransition_kgqpl"), "run", "lanzar", SubResource("AnimationNodeStateMachineTransition_rieax"), "reposo", "daño", SubResource("AnimationNodeStateMachineTransition_2byg6"), "walk", "daño", SubResource("AnimationNodeStateMachineTransition_v4mt0"), "run", "daño", SubResource("AnimationNodeStateMachineTransition_qikq7"), "lanzar", "reposo", SubResource("AnimationNodeStateMachineTransition_2jbiu"), "lanzar", "walk", SubResource("AnimationNodeStateMachineTransition_1rlit"), "lanzar", "run", SubResource("AnimationNodeStateMachineTransition_jikgx"), "daño", "reposo", SubResource("AnimationNodeStateMachineTransition_744np"), "daño", "walk", SubResource("AnimationNodeStateMachineTransition_hkjnb"), "daño", "run", SubResource("AnimationNodeStateMachineTransition_wdkog"), "daño", "die", SubResource("AnimationNodeStateMachineTransition_t01fw"), "die", "End", SubResource("AnimationNodeStateMachineTransition_fo6um"), "jump", "reposo", SubResource("AnimationNodeStateMachineTransition_nlqij"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_5ws41"), "jump", "lanzar", SubResource("AnimationNodeStateMachineTransition_0bkwq")]
-graph_offset = Vector2(273, 206.2)
+transitions = ["Start", "reposo", SubResource("AnimationNodeStateMachineTransition_eyloj"), "reposo", "walk", SubResource("AnimationNodeStateMachineTransition_jx705"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_tpgwr"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_l6oco"), "walk", "reposo", SubResource("AnimationNodeStateMachineTransition_w6kb4"), "reposo", "jump", SubResource("AnimationNodeStateMachineTransition_1dj4g"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_f3u81"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_8ir8p"), "reposo", "lanzar", SubResource("AnimationNodeStateMachineTransition_3crkk"), "walk", "lanzar", SubResource("AnimationNodeStateMachineTransition_kgqpl"), "run", "lanzar", SubResource("AnimationNodeStateMachineTransition_rieax"), "reposo", "daño", SubResource("AnimationNodeStateMachineTransition_2byg6"), "walk", "daño", SubResource("AnimationNodeStateMachineTransition_v4mt0"), "run", "daño", SubResource("AnimationNodeStateMachineTransition_qikq7"), "lanzar", "reposo", SubResource("AnimationNodeStateMachineTransition_2jbiu"), "lanzar", "walk", SubResource("AnimationNodeStateMachineTransition_1rlit"), "lanzar", "run", SubResource("AnimationNodeStateMachineTransition_jikgx"), "daño", "reposo", SubResource("AnimationNodeStateMachineTransition_744np"), "daño", "walk", SubResource("AnimationNodeStateMachineTransition_hkjnb"), "daño", "run", SubResource("AnimationNodeStateMachineTransition_wdkog"), "daño", "die", SubResource("AnimationNodeStateMachineTransition_t01fw"), "die", "End", SubResource("AnimationNodeStateMachineTransition_fo6um"), "jump", "reposo", SubResource("AnimationNodeStateMachineTransition_nlqij"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_5ws41"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_wvjug"), "jump", "lanzar", SubResource("AnimationNodeStateMachineTransition_0bkwq"), "jump", "doble salto", SubResource("AnimationNodeStateMachineTransition_ayeem")]
+graph_offset = Vector2(63, 503.2)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtm6y"]
 radius = 7.0

@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbx4cdrde7i7p"]
+[gd_scene load_steps=2 format=3 uid="uid://c0c8x4nkd7ewi"]
 
-[ext_resource type="Script" path="res://scripts/zona_de_muerte.gd" id="1_qgku4"]
+[sub_resource type="GDScript" id="GDScript_sj8or"]
+script/source = "extends Area2D
+@onready var timer: Timer = $Timer
+
+
+func _on_body_entered(body: Node2D) -> void:
+	print(\"Has perdido!\")
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
+"
 
 [node name="Zona de muerte" type="Area2D"]
-script = ExtResource("1_qgku4")
+script = SubResource("GDScript_sj8or")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
