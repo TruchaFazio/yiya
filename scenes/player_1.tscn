@@ -317,6 +317,7 @@ height = 26.0
 
 [node name="player1" type="CharacterBody2D"]
 position = Vector2(308, 228)
+collision_layer = 2
 script = ExtResource("1_x3o7h")
 move_speed = 120.0
 gravity = 980.0
